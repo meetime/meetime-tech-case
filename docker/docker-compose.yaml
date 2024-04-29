@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  db:
+    container_name: db
+    image: postgres:9.6-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: company
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - services
+
+  web:
+    container_name: service
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "9000:9000"
+      - "5005:5005"
+    depends_on:
+      - db
+    volumes:
+      - ../:/app
+      - sbt_cache:/root/.ivy2/cache
+      - sbt_home:/root/.sbt
+    networks:
+      - services
+
+volumes:
+  pgdata:
+  sbt_cache:
+  sbt_home:
+networks:
+  services:
+    driver: bridge
