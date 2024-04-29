@@ -4,4 +4,4 @@ target
 /logs
 /RUNNING_PID
 docker/project
-project/
+project/project
