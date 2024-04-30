@@ -6,9 +6,9 @@ Os candidatos serão desafiados a resolver uma série de problemas e implementar
 ## Instalação
 
 Para rodar o projeto, é necessário ter o Docker e Docker Compose instalados na máquina.
-Acessar a pasta docker e rodar o comando abaixo:
+Acessar a pasta **docker** e rodar o comando abaixo:
 ```bash
-docker-compose up --build -d
+docker compose up --build -d
 ```
 ---
 ## Caso de uso

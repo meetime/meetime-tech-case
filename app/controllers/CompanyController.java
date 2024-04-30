@@ -26,9 +26,8 @@ public class CompanyController extends Controller {
     public Result createCompany(Http.Request request) {
         Form<CreateCompanyForm> createCompanyFormForm = formFactory.form(CreateCompanyForm.class)
                 .bindFromRequest(request);
-        Long companyId = companyService.createCompany(createCompanyFormForm.get());
-        return ok()
-                .withHeader("Location", "/companies/" + companyId);
+        companyService.createCompany(createCompanyFormForm.get());
+        return ok();
     }
 
     public Result retrieveCompany(Long id) {

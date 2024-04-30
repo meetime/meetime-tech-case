@@ -15,10 +15,9 @@ public class CompanyService {
         this.companyRepository = companyRepository;
     }
 
-    public Long createCompany(CreateCompanyForm createCompanyForm) {
+    public void createCompany(CreateCompanyForm createCompanyForm) {
         Company company = Company.from(createCompanyForm);
         companyRepository.createCompany(company);
-        return company.getId();
     }
 
     public Company getCompanyById(Long id) {
